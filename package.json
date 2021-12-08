@@ -1,0 +1,40 @@
+{
+  "name": "demokratie-bot",
+  "version": "1.0.0",
+  "description": "Ein Discord-Bot, der Demokratische Discord Server unterstützt",
+  "main": "dist/index.js",
+  "repository": "https://github.com/JonatanMGit/demokratie-bot",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node ./dist/index.js",
+    "build": "tsc",
+    "dev": "ts-node-dev src/index.ts --transpile-only",
+    "lint": "eslint src/**/*.ts",
+    "format": "eslint src/**/*.ts --fix",
+    "prettify": "prettier --write src/**/*.ts",
+    "prepublishOnly": "npm run format && npm run prettify && npm run build"
+  },
+  "keywords": [
+    "discord",
+    "demokratie"
+  ],
+  "author": "JonatanMGit, NiceHD",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^0.9.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.25.2",
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "needle": "^3.0.0",
+    "query-string": "^7.0.1"
+  }
+}
