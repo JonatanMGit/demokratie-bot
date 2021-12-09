@@ -1,21 +1,12 @@
 // Require the necessary discord.js classes
-import { Client, Intents } from 'discord.js';
+import { Client, Intents, TextChannel } from 'discord.js';
 import * as dotenv from 'dotenv';
-dotenv.config({ path: '././.env' });
-const fs = require('fs');
+dotenv.config({ path: './.env' });
 require('./deploy-commands');
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore Why is this needed?
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-
-const commands = [];
-const commandFiles = fs.readdirSync(__dirname + '/commands').filter((file) => file.endsWith('.js'));
-
-for (const file of commandFiles) {
-	const command = require(__dirname + `/commands/${file}`);
-	commands.push(command.data.toJSON());
-}
 
 client.on('ready', () => {
 	client.user.setActivity('mit Joe Biden', { type: 'PLAYING' });
@@ -28,7 +19,11 @@ client.on('ready', () => {
 });
 
 client.on('interactionCreate', async (interaction) => {
-	console.log(`${interaction.guild.name} | ${interaction.guild.id}`);
+	console.log(
+		`${interaction.user.tag} created an interaction in ${
+			(client.channels.cache.get(interaction.channel.id) as TextChannel).name
+		} with the id ${interaction.id}`,
+	);
 	if (!interaction.isCommand()) return;
 	const command = require(__dirname + `/commands/${interaction.commandName}`);
 
@@ -41,5 +36,6 @@ client.on('interactionCreate', async (interaction) => {
 		return interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
+
 // Login to Discord with your client's token
 client.login(process.env.discord_token);
