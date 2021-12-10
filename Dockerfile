@@ -14,6 +14,4 @@ RUN rm -rf node_modules/
 
 RUN npm install --production
 
-ADD dist dist
-
 CMD [ "npm", "start" ]
