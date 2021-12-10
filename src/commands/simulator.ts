@@ -17,7 +17,6 @@ module.exports = {
 		if (!(channel instanceof TextChannel)) {
 			return interaction.reply('This command can only be used in a text channel');
 		}
-
 		if (
 			!interaction.guild.me.permissionsIn(channel).has(Permissions.FLAGS.VIEW_CHANNEL) &&
 			!interaction.guild.me.permissionsIn(channel).has(Permissions.FLAGS.READ_MESSAGE_HISTORY)
@@ -33,8 +32,21 @@ module.exports = {
 		markov.addStates(result.map((m) => m.content));
 
 		markov.train();
-		console.log(target);
-		return interaction.reply(target.username + ': ' + String(markov.generateRandom()));
+		return interaction.reply(
+			target.username +
+				': ' +
+				String(
+					markov.generateRandom() +
+						' ' +
+						markov.generateRandom() +
+						' ' +
+						markov.generateRandom() +
+						' ' +
+						markov.generateRandom() +
+						' ' +
+						markov.generateRandom(),
+				),
+		);
 	},
 	name: 'simulator',
 };
