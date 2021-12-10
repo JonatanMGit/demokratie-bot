@@ -1,5 +1,5 @@
 // Require the necessary discord.js classes
-import { Client, Intents, TextChannel } from 'discord.js';
+import { Client, GuildChannel, Intents, TextChannel, Permissions } from 'discord.js';
 import * as dotenv from 'dotenv';
 dotenv.config({ path: './.env' });
 require('./deploy-commands');
@@ -27,7 +27,15 @@ client.on('interactionCreate', async (interaction) => {
 	if (!interaction.isCommand()) return;
 	const command = require(__dirname + `/commands/${interaction.commandName}`);
 
-	if (!command) return;
+	// check if you have permissions to run the command
+	if (!command) return interaction.reply('Command not found');
+
+	if (!interaction.guild) return;
+	if (
+		!interaction.guild.me.permissionsIn(interaction.channel as GuildChannel).has(Permissions.FLAGS.VIEW_CHANNEL) &&
+		!interaction.guild.me.permissionsIn(interaction.channel as GuildChannel).has(Permissions.FLAGS.READ_MESSAGE_HISTORY)
+	)
+		return interaction.reply('I do not have permission to view messages in this channel');
 
 	try {
 		await command.execute(interaction);
