@@ -4,7 +4,11 @@ import fs from 'fs';
 
 const commands = [];
 export function updateCommands() {
-	return fs.readdirSync(__dirname + '/commands').filter((file) => file.endsWith('.js') || file.endsWith('.ts'));
+	try {
+		return fs.readdirSync(__dirname + '/commands').filter((file) => file.endsWith('.js') || file.endsWith('.ts'));
+	} catch (error) {
+		return error;
+	}
 }
 export const commandFiles = updateCommands();
 
