@@ -22,4 +22,5 @@ module.exports = {
 		return interaction.reply(String(helptext));
 	},
 	name: 'help',
+	permissions: ['SEND_MESSAGES'],
 };

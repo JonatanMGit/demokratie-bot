@@ -6,8 +6,9 @@
   "repository": "https://github.com/JonatanMGit/demokratie-bot",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node ./dist/index.js",
+    "start": "node ./dist/index.js",
     "build": "tsc",
+    "build:start": "npm run build && npm run start",
     "dev": "ts-node-dev src/index.ts --transpile-only",
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix",
@@ -34,8 +35,6 @@
     "discord-api-types": "^0.25.2",
     "discord.js": "^13.3.1",
     "dotenv": "^10.0.0",
-    "js-markov": "^3.0.3",
-    "needle": "^3.0.0",
-    "query-string": "^7.0.1"
+    "js-markov": "^3.0.3"
   }
 }
