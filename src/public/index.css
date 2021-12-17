@@ -1,0 +1,35 @@
+body {
+	background-color: #2c2f33;
+	color: white;
+}
+#Background-Schwarz {
+	background-color: Black;
+}
+#Background-Weiß {
+	background-color: white;
+}
+#Background-Grau {
+	background-color: grey;
+}
+#Background-DCGray {
+	background-color: #2c2f33;
+}
+.content {
+	min-height: 100%;
+}
+.content-inside {
+	padding: 20px;
+	padding-bottom: 50px;
+}
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	height: 25px;
+	background-color: black;
+}
+#Buchstabenfarbe-Weiß {
+	color: white;
+}

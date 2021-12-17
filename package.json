@@ -15,7 +15,11 @@
     "prettify": "prettier --write src/**/*.ts",
     "prepublishOnly": "npm run format && npm run prettify && npm run build",
     "docker:build": "docker build -t demokratie-bot .",
-    "docker:publish": "docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t ghcr.io/jonatanmgit/demokratie-bot:latest . --push"
+    "docker:publish": "docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t ghcr.io/jonatanmgit/demokratie-bot:latest . --push",
+    "web:start": "npm run tailwind:build && ts-node-dev src/web.ts",
+    "web:serve": "ts-node-dev src/web.ts",
+    "tailwind:build": "tailwindcss -o src/public/styles/style.css --content src/public/**/*.html",
+    "tailwind:dev": "tailwindcss -o src/public/styles/style.css --content src/public/**/*.html -w"
   },
   "keywords": [
     "discord",
@@ -24,12 +28,14 @@
   "author": "JonatanMGit, NiceHD",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^16.11.12",
-    "@typescript-eslint/eslint-plugin": "^5.6.0",
-    "@typescript-eslint/parser": "^5.6.0",
+    "@types/node": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "autoprefixer": "^10.4.0",
     "eslint": "^8.4.1",
+    "tailwindcss": "^3.0.7",
     "ts-node-dev": "^1.1.8",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.4"
   },
   "dependencies": {
     "@discordjs/builders": "^0.9.0",
@@ -37,6 +43,8 @@
     "discord-api-types": "^0.25.2",
     "discord.js": "^13.3.1",
     "dotenv": "^10.0.0",
-    "js-markov": "^3.0.3"
+    "express": "^4.17.2",
+    "js-markov": "^3.0.3",
+    "socket.io": "^4.4.0"
   }
 }

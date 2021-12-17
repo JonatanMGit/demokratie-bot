@@ -3,6 +3,7 @@ import { Client, GuildChannel, Intents, TextChannel, Permissions } from 'discord
 import * as dotenv from 'dotenv';
 dotenv.config({ path: './.env' });
 require('./deploy-commands');
+require('./web');
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore Why is this needed?
