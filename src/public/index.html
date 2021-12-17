@@ -7,17 +7,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Demokratie Bot</title>
 	<link rel="stylesheet" href="../index.css">
+	<link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
-	<nav>
-		<a href="#"><img
-				src="https://cdn.discordapp.com/attachments/529763942759661590/921519707604021298/e89c214d-acae-4dda-87c2-03806f7cdbf7.png"
-				width="5%" height="1%"></a>
-		<a href="/vote" id="Buchstabenfarbe-Weiß">Votes</a>
-		
+	<nav class="flex items-center justify-between bg-gray-800 h-20 shadow-2xl">
+		<div class="logo">
+			<a href="/"><img class="h-20" src="https://cdn.discordapp.com/attachments/529763942759661590/921519707604021298/e89c214d-acae-4dda-87c2-03806f7cdbf7.png"></img></a>
+		</div>
+		<ul class="flex">
+			<li>
+				<a class="text-white mr-4 bg-gray-500 pt-4 p-4 pr-5 pl-5 hover:bg-gray-600 transition-all rounded"
+					href="/vote"><i class="fas fa-home"></i>Votes</a>
+			</li>
+			<li>
+				<a class="text-white mr-4 bg-gray-500 pt-4 p-4 pr-5 pl-5 hover:bg-gray-600 transition-all rounded"
+					href="#"><i class="fas fa-question"></i>Administration</a>
+			</li>
+			<li>
+				<a class="text-white mr-4 bg-gray-500 pt-4 p-4 pr-5 pl-5 hover:bg-gray-600 transition-all rounded"
+					href="#"><i class="fas fa-reply"></i> Contact</a>
+			</li>
+		</ul>
 	</nav>
-
 
 	<footer class="footer ">©Poop Olympics</footer>
 </body>

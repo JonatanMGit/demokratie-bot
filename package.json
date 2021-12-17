@@ -18,7 +18,7 @@
     "docker:publish": "docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t ghcr.io/jonatanmgit/demokratie-bot:latest . --push",
     "web:start": "npm run tailwind:build && ts-node-dev src/web.ts",
     "web:serve": "ts-node-dev src/web.ts",
-    "tailwind:build": "tailwindcss -o src/public/styles/style.css --content src/public/**/*.html",
+    "tailwind:build": "tailwindcss -o src/public/styles/style.css --content src/public/**/*.html --minify",
     "tailwind:dev": "tailwindcss -o src/public/styles/style.css --content src/public/**/*.html -w"
   },
   "keywords": [
