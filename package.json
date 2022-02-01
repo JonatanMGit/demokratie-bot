@@ -42,7 +42,7 @@
     "@discordjs/rest": "^0.3.0",
     "discord-api-types": "^0.26.0",
     "discord.js": "^13.3.1",
-    "dotenv": "^10.0.0",
+    "dotenv": "^15.0.0",
     "express": "^4.17.2",
     "js-markov": "^3.0.3",
     "socket.io": "^4.4.0"
